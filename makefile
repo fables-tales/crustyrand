@@ -1,5 +1,7 @@
 CFLAGS = -Wall -Werror -Wextra -pthread
 
+.PHONY: analyse
+
 crustyrand: build/sources/timersource.o build/main.o
 	gcc $(CFLAGS) $^ -o $@
 
@@ -14,3 +16,7 @@ build/main.o: src/main.c
 clean:
 	rm -rf build/sources/timersource.o
 	rm -rf build/main.o
+
+analyse:
+	python analysis/compute_ratio.py
+	python analysis/uniformity.py
