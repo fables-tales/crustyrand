@@ -31,7 +31,6 @@ void* timer_thread_function(void* data) {
         random_bits = (random_bits << 1) + lowest_bit(counter);
         bit_count++;
         if (bit_count == 8) {
-            printf("%X", random_bits);
             fprintf(fp, "%c", random_bits);
             random_bits = 0;
             bit_count = 0;
